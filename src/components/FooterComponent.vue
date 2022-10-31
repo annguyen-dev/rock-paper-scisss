@@ -2,7 +2,7 @@
   <footer>
     <router-link to="/extended" v-if="$store.state.extendedMode">
       <button class="menu-btn" id="game-mode-btn" @click="changeMode()">
-        Change Mode123
+        Change Mode
       </button>
     </router-link>
 
