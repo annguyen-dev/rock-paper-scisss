@@ -1,0 +1,166 @@
+@import 'variables';
+
+#round{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: white;
+    font-family: $semi-bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+
+    #your-pick,
+    #house-pick{
+        width: 25%;
+        height: 40vh;
+        position: relative;
+        h4{
+            display:block;
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        .your-picks,
+        .house-picks{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: auto;
+            height: auto;
+        
+
+            .pre-shadow{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+
+                width: 200px;
+                height: 200px;
+                background-color: rgba(0,0,0, 0.25);
+                border-radius: 9999px;
+            }
+
+            
+
+            .win-shadow,
+            .lose-shadow{
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                width: 215px;
+                height: 215px;
+                z-index: -1;
+                border-radius: 9999px;
+                background-color: rgba(255,255,255, 0.025);
+                opacity: 0;
+
+                .circle-1{
+                    display: flex;
+                    align-items: center;
+                    width: 165px;
+                    height: 165px;
+                    z-index: -1;
+                    margin: 0 auto;
+                    border-radius: 9999px;
+                    background-color: rgba(255,255,255, 0.05);
+                }
+
+                .circle-2{
+                    display: flex;
+                    align-items: center;
+                    width: 115px;
+                    height: 115px;
+                    z-index: -1;
+                    margin: 0 auto;
+                    border-radius: 9999px;
+                    background-color: rgba(255,255,255, 0.075);
+                }
+            }
+        }
+    }
+
+    .your-btn-picked,
+    .house-btn-picked{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 160px;
+        height: 160px;
+        img{
+            width: 70px;
+        }
+    }
+
+    .paper-btn{
+        border: 25px solid $paper-border;
+    }
+    
+    .rock-btn{
+        border: 25px solid $rock-border;
+    }
+    
+    .scissors-btn{
+        border: 25px solid $scissors-border;
+    }
+
+    .lizard-btn-extended{
+        border: 25px solid $lizard-border;
+    }
+
+    .spock-btn-extended{
+        border: 25px solid $spock-border;
+    }
+
+    #result{
+        display: block;
+        position: absolute;
+        z-index: 1;
+        height: 150px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        h1{
+            font-size: 50px;
+        }
+        .again-btn{
+            cursor: pointer;
+            text-transform: uppercase;
+            font-family: $semi-bold;
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: $dark-text;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 10px 50px;
+            margin-top: 20px;
+            transition: all 300ms;
+        }
+
+        .again-btn:hover{
+            color: $rock-border;
+        }
+    }
+
+    
+}
