@@ -8,7 +8,7 @@
 
     <router-link to="/classic" v-if="!$store.state.extendedMode">
       <button class="menu-btn" id="game-mode-btn" @click="changeMode()">
-        Change Mode
+        Change mode
       </button>
     </router-link>
 
