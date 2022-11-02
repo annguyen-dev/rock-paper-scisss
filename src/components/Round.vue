@@ -25,7 +25,7 @@
           <img src="../assets/images/icon-scissors.svg" />
         </div>
 
-        <div
+        <!-- <div
           class="btn lizard-btn-extended your-btn-picked"
           v-if="yourSelection == 'lizard'"
         >
@@ -37,7 +37,7 @@
           v-if="yourSelection == 'spock'"
         >
           <img src="../assets/images/icon-spock.svg" />
-        </div>
+        </div> -->
 
         <div class="win-shadow" v-if="youWin">
           <div class="circle-1">
@@ -53,9 +53,9 @@
         <router-link to="/classic" v-if="!this.$store.state.extendedMode">
           <button class="again-btn">Play Again</button>
         </router-link>
-        <router-link to="/extended" v-if="this.$store.state.extendedMode">
+        <!-- <router-link to="/extended" v-if="this.$store.state.extendedMode">
           <button class="again-btn">Play Again</button>
-        </router-link>
+        </router-link> -->
       </span>
     </div>
 
@@ -84,7 +84,7 @@
           <img src="../assets/images/icon-scissors.svg" />
         </div>
 
-        <div
+        <!-- <div
           class="btn lizard-btn-extended house-btn-picked"
           v-if="houseSelection == 'lizard'"
         >
@@ -96,7 +96,7 @@
           v-if="houseSelection == 'spock'"
         >
           <img src="../assets/images/icon-spock.svg" />
-        </div>
+        </div> -->
 
         <div class="lose-shadow" v-if="youLose">
           <div class="circle-1">
@@ -133,10 +133,10 @@ export default {
         housePick = "rock";
       } else if (housePick == 3) {
         housePick = "scissors";
-      } else if (housePick == 4) {
-        housePick = "lizard";
-      } else if (housePick == 5) {
-        housePick = "spock";
+        // } else if (housePick == 4) {
+        //   housePick = "lizard";
+        // } else if (housePick == 5) {
+        //   housePick = "spock";
       }
       this.houseSelection = housePick;
     },
@@ -167,59 +167,57 @@ export default {
       }
     },
 
-    whoWinExtended(you, house) {
-      if (you == house) {
-        this.result = "Draw";
-        this.youWin = false;
-        this.youLose = false;
-      } else if (you == null) {
-        this.result = "Error";
-        this.youWin = false;
-        this.youLose = false;
-      } else if (
-        (you == "scissors" && house == "paper") ||
-        (you == "scissors" && house == "lizard") ||
-        (you == "paper" && house == "rock") ||
-        (you == "paper" && house == "spock") ||
-        (you == "rock" && house == "lizard") ||
-        (you == "rock" && house == "scissors") ||
-        (you == "lizard" && house == "spock") ||
-        (you == "lizard" && house == "paper") ||
-        (you == "spock" && house == "scissors") ||
-        (you == "spock" && house == "rock")
-      ) {
-        this.result = "You Win";
-        this.$store.commit("INCREASE");
-        this.youLose = false;
-        this.youWin = true;
-      } else {
-        this.result = "You Lose";
-        this.$store.commit("DECREASE");
-        this.youWin = false;
-        this.youLose = true;
-      }
-    },
+    // whoWinExtended(you, house) {
+    //   if (you == house) {
+    //     this.result = "Draw";
+    //     this.youWin = false;
+    //     this.youLose = false;
+    //   } else if (you == null) {
+    //     this.result = "Error";
+    //     this.youWin = false;
+    //     this.youLose = false;
+    //   } else if (
+    //     (you == "scissors" && house == "paper") ||
+    //     (you == "scissors" && house == "lizard") ||
+    //     (you == "paper" && house == "rock") ||
+    //     (you == "paper" && house == "spock") ||
+    //     (you == "rock" && house == "lizard") ||
+    //     (you == "rock" && house == "scissors") ||
+    //     (you == "lizard" && house == "spock") ||
+    //     (you == "lizard" && house == "paper") ||
+    //     (you == "spock" && house == "scissors") ||
+    //     (you == "spock" && house == "rock")
+    //   ) {
+    //     this.result = "You Win";
+    //     this.$store.commit("INCREASE");
+    //     this.youLose = false;
+    //     this.youWin = true;
+    //   } else {
+    //     this.result = "You Lose";
+    //     this.$store.commit("DECREASE");
+    //     this.youWin = false;
+    //     this.youLose = true;
+    //   }
+    // },
 
     roundAnimations() {
       const roundTimeline = gsap.timeline({ defaults: { duration: 1 } });
 
-      if(screen.width > 670){
-      roundTimeline
-        .to("#your-pick", { x: "-10vw", delay: 1.5, ease: "elastic" })
-        .to("#house-pick", { x: "10vw", delay: 1.5, ease: "elastic" }, 0)
-        .to(".win-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
-        .to(".lose-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
-        .from("#result", { opacity: 0, ease: "circ" }, "<.3");
+      if (screen.width > 670) {
+        roundTimeline
+          .to("#your-pick", { x: "-10vw", delay: 1.5, ease: "elastic" })
+          .to("#house-pick", { x: "10vw", delay: 1.5, ease: "elastic" }, 0)
+          .to(".win-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
+          .to(".lose-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
+          .from("#result", { opacity: 0, ease: "circ" }, "<.3");
       } else {
-      roundTimeline
-        .to("#your-pick", { scale:1.1, delay: 1.5, ease: "elastic" })
-        .to("#house-pick", { scale:1.1, delay: 1.5, ease: "elastic" }, 0)
-        .to(".win-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
-        .to(".lose-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
-        .from("#result", { opacity: 0, ease: "circ" }, "<.3");
+        roundTimeline
+          .to("#your-pick", { scale: 1.1, delay: 1.5, ease: "elastic" })
+          .to("#house-pick", { scale: 1.1, delay: 1.5, ease: "elastic" }, 0)
+          .to(".win-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
+          .to(".lose-shadow", { opacity: 1, scale: 3, ease: "back" }, "<0")
+          .from("#result", { opacity: 0, ease: "circ" }, "<.3");
       }
-
-      
     },
   },
   computed: {
@@ -237,9 +235,9 @@ export default {
       setTimeout(() => {
         this.houseSelector(1, 5);
       }, 1400);
-      setTimeout(() => {
-        this.whoWinExtended(this.yourSelection, this.houseSelection);
-      }, 1600);
+      // setTimeout(() => {
+      //   this.whoWinExtended(this.yourSelection, this.houseSelection);
+      // }, 1600);
     }
     this.roundAnimations();
   },

@@ -1,35 +1,36 @@
 <template>
   <div id="app">
-    <HeaderComponent/>
+    <HeaderComponent />
     <vue-page-transition name="zoom">
-      <router-view
-        @pick="pick=$event"
-        :pickSelected="this.pick"
-      />
+      <router-view @pick="pick = $event" :pickSelected="this.pick" />
     </vue-page-transition>
     <FooterComponent />
   </div>
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent.vue'
-import FooterComponent from './components/FooterComponent.vue';
-
+import HeaderComponent from "./components/HeaderComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeaderComponent,
     FooterComponent,
   },
-  data(){
+  data() {
     return {
       pick: null,
-    }
+    };
   },
-}
+  // methods: {
+  //   getEvent(el) {
+  //     console.log("el", el);
+  //   },
+  // },
+};
 </script>
 
 <style>
-  @import "./assets/css/styles.css";
+@import "./assets/css/styles.css";
 </style>
