@@ -6,11 +6,11 @@
       </button>
     </router-link>
 
-    <router-link to="/classic" v-if="!$store.state.extendedMode">
+    <!-- <router-link to="/classic" v-if="!$store.state.extendedMode">
       <button class="menu-btn" id="game-mode-btn" @click="changeMode()">
         Change mode
       </button>
-    </router-link>
+    </router-link> -->
 
     <button class="menu-btn" id="rules-btn" @click="showRules()">Rules</button>
     <Rules id="rules" />

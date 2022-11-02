@@ -30,9 +30,9 @@
           v-if="yourSelection == 'lizard'"
         >
           <img src="../assets/images/icon-lizard.svg" />
-        </div>
+        </div> -->
 
-        <div
+        <!-- <div
           class="btn spock-btn-extended your-btn-picked"
           v-if="yourSelection == 'spock'"
         >
@@ -126,7 +126,10 @@ export default {
   },
   methods: {
     houseSelector(min, max) {
+      console.log("min", min);
+      console.log("max", max);
       var housePick = Math.round(Math.random() * (max - min) + min);
+      console.log("housePick", housePick);
       if (housePick == 1) {
         housePick = "paper";
       } else if (housePick == 2) {
