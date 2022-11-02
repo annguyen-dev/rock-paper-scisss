@@ -6,19 +6,17 @@
         src="../assets/images/logo.svg"
         alt="Rock, Paper, Scissors"
       />
-      <img
+      <!-- <img
         id="extended-logo"
         src="../assets/images/logo-bonus.svg"
-        alt="Rock, Paper, Scissors, Lizard, Spock"
+        alt="Rock, Paper, Scissors, Lizard, Spock" -->
       />
     </div>
 
     <div id="score-box">
       <span class="score-text">Score</span>
 
-      <span id="score" class="classic-score">{{
-        $store.state.counter
-      }}</span>
+      <span id="score" class="classic-score">{{ $store.state.counter }}</span>
       <span id="score" class="extended-score">{{
         $store.state.extendedCounter
       }}</span>
